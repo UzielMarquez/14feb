@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hola Jaanai</title>
+ 
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: "Nature Beauty", sans-serif;
+      color: #336699;
+      flex-direction: column;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #336699;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+    }
+
+    p {
+      font-size: 20px; 
+      text-align: center;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nature+Beauty&display=swap">
+  <script>
+    
+    var textos = ["Hoy es 14 de febrero ", "Y lamentablemente no podemos estar juntos \n:(", "Pero quiero que sepas que te amo <3", "Y que te extraño", "Pero no me molesta extrañarte, me hace felÍz saber que tengo una linda novia a la que pronto podré abrazar", "Prometo darte flores cuando te vea, pero mientras llega ese día, te doy estas <33","Estoy muy orgulloso de ti, sé que vas a lograr todo lo que te propongas, mucho ánimo estudiandoo", "Te amo mi linda, preciosa, dulce y bonita novia"];
+  
+    var imagenes = ["gato1.png", "gato2.png", "besito.jpg", "gato4.png", "gato5.png", "rosas.png","happy1.png", "teamo.png"];
+    
+    var indiceTexto = 0;
+    
+    var primerClic = true;
+
+    function agregarTexto() {
+      
+      var nuevoTexto = document.createElement("p");
+     
+      var textoActual = textos[indiceTexto];
+      
+      nuevoTexto.textContent = textoActual;
+
+      // Crear un nuevo elemento de imagen
+      var nuevaImagen = document.createElement("img");
+      
+      var urlImagenActual = imagenes[indiceTexto];
+     
+      nuevaImagen.src = urlImagenActual;
+
+      
+      indiceTexto++;
+
+     
+      var cuerpo = document.body;
+      
+      cuerpo.innerHTML = '';
+      
+      cuerpo.appendChild(nuevoTexto);
+     
+      cuerpo.appendChild(nuevaImagen);
+
+     
+      if (indiceTexto < textos.length) {
+     
+        var botonSeguir = document.createElement("button");
+        botonSeguir.textContent = "Seguir";
+        botonSeguir.id = "botonSeguir";
+        botonSeguir.onclick = agregarTexto;
+        cuerpo.appendChild(botonSeguir);
+      }
+
+      
+      if (primerClic) {
+        var audio = new Audio('only_instr.mp3');
+        audio.play();
+        primerClic = false;
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1 id="tituloHolaJaanai">Hola Jaanai</h1>
+  <br>
+  <button id="botonSeguir" onclick="agregarTexto()">Seguir</button>
+</body>
+</html>
